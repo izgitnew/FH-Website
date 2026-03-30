@@ -181,6 +181,15 @@
       background: var(--terra-dark); transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(181,104,75,0.25);
     }
+    .btn--outline {
+      background: none; color: var(--terra);
+      padding: 15px 31px; border-radius: 8px;
+      border: 1.5px solid var(--terra);
+    }
+    .btn--outline:hover {
+      background: var(--terra); color: #fff; transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(181,104,75,0.25);
+    }
     .btn--ghost {
       background: none; color: var(--text);
       padding: 16px 4px;
@@ -302,7 +311,7 @@
       max-width: 600px; margin-bottom: 16px;
     }
     .offering-primary-meta {
-      font-size: 0.82rem; color: var(--text-soft); margin-bottom: 28px;
+      font-size: 0.82rem; color: var(--text-mid); margin-bottom: 28px;
     }
     .offering-link {
       font-family: var(--accent); font-size: 0.84rem; font-weight: 600;
@@ -343,7 +352,7 @@
       color: var(--dark); margin-bottom: 10px;
     }
     .offering-course p, .offering-mastermind p {
-      color: var(--text-mid); font-size: 0.95rem; line-height: 1.7;
+      color: var(--text); font-size: 0.95rem; line-height: 1.7;
       margin-bottom: 20px;
     }
     .offering-detail {
@@ -430,11 +439,11 @@
       font-style: italic; color: var(--dark); margin-bottom: 20px;
     }
 
-    /* ── PODCAST ── */
-    .podcast {
+    /* ── VIDEOS ── */
+    .videos {
       padding: 120px 0 100px;
     }
-    .podcast-grid {
+    .videos-grid {
       display: grid; grid-template-columns: 1.3fr 1fr;
       gap: 56px; align-items: center;
     }
@@ -446,13 +455,26 @@
     .video-embed iframe {
       width: 100%; height: 100%; border: none;
     }
-    .podcast-body h2 {
+    .video-facade {
+      cursor: pointer; position: relative;
+    }
+    .video-facade img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .video-facade-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px; height: 48px;
+      transition: opacity 0.2s ease;
+    }
+    .video-facade:hover .video-facade-play { opacity: 0.85; }
+    .videos-body h2 {
       font-family: var(--serif);
       font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 600; line-height: 1.2;
       color: var(--dark); margin-bottom: 16px;
     }
-    .podcast-body > p {
+    .videos-body > p {
       color: var(--text); font-size: 1.05rem; margin-bottom: 32px;
     }
     .ep-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
@@ -479,7 +501,7 @@
       transition: color 0.3s ease;
     }
     .ep:hover h4 { color: var(--terra); }
-    .podcast-fresh {
+    .videos-fresh {
       font-family: var(--accent); font-size: 0.78rem; font-weight: 500;
       color: var(--sage); margin-bottom: 12px;
     }
@@ -610,7 +632,7 @@
       .hero-p { margin-left: auto; margin-right: auto; }
       .hero-actions { justify-content: center; }
       .hero-right { height: 50vh; }
-      .about-grid, .podcast-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-grid, .videos-grid { grid-template-columns: 1fr; gap: 48px; }
       .offering-pair { grid-template-columns: 1fr; }
       .offering-course { border-right: none; padding: 36px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
       .offering-mastermind { padding: 36px 0; }
@@ -639,7 +661,7 @@
       .nav-menu.open .nav-cta {
         margin-top: 8px; text-align: center;
       }
-      .podcast-grid { grid-template-columns: 1fr; gap: 48px; }
+      .videos-grid { grid-template-columns: 1fr; gap: 48px; }
       .nl-form { flex-direction: column; }
       .nl-form input { width: 100%; }
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -680,7 +702,7 @@
       <h1>Rompe el ciclo. Empieza a sanar desde adentro.</h1>
       <p class="hero-p">Ayudo a mujeres a liberar las emociones que las detienen, romper patrones dañinos y reconectarse con el amor propio que merecen. 25+ años guiando transformación en Colombia y Estados Unidos.</p>
       <div class="hero-actions">
-        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Comienza tu sanación</a>
+        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Comienza tu sanación <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         <a href="#about" class="btn btn--ghost">
           Conoce más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -712,7 +734,7 @@
     <div class="wrap">
       <div class="about-grid">
         <div class="about-photo reveal">
-          <div class="about-photo-inner"><img src="juliana-author.jpg" alt="Juliana Henao"></div>
+          <div class="about-photo-inner"><img src="juliana-author.jpg" alt="Juliana Henao" loading="lazy"></div>
         </div>
         <div class="about-body">
           <h2>Hola, soy Juliana. He caminado el mismo camino que hoy te guío a recorrer.</h2>
@@ -740,7 +762,7 @@
       <div class="offering-pair">
         <div class="offering-course">
           <div class="offering-course-inner">
-            <img src="guide-cover.jpg" alt="30 Días de Amor Propio guide cover" class="offering-thumb">
+            <img src="guide-cover.jpg" alt="30 Días de Amor Propio guide cover" class="offering-thumb" loading="lazy">
             <div>
               <div class="offering-tag">Guía digital</div>
               <h3>30 Días de Amor Propio</h3>
@@ -779,7 +801,7 @@
       <div class="testimonial-featured">
         <blockquote>"Quiero agradecer profundamente a Juliana Henao. Sus talleres de crecimiento personal han sido una experiencia muy valiosa para mí y marcaron un antes y un después en mi proceso personal."</blockquote>
         <div class="testimonial-who">
-          <img src="avatar-nancy.jpg" alt="" class="testimonial-avatar">
+          <img src="avatar-nancy.jpg" alt="" class="testimonial-avatar" loading="lazy">
           <div class="testimonial-meta">
             <span class="testimonial-name">Nancy S.</span>
             <span class="testimonial-outcome">Recuperó su claridad emocional</span>
@@ -790,7 +812,7 @@
         <div class="testimonial-small">
           <blockquote>"Esta guía transformó mi forma de pensar y expresarme. Empecé a ser más consciente de mis palabras y eso trajo cambios reales en mi tranquilidad emocional y en mi bienestar económico."</blockquote>
           <div class="testimonial-who">
-            <img src="avatar-lina.jpg" alt="" class="testimonial-avatar">
+            <img src="avatar-lina.jpg" alt="" class="testimonial-avatar" loading="lazy">
             <div class="testimonial-meta">
               <span class="testimonial-name">Lina María P.</span>
               <span class="testimonial-outcome">Se sintió acompañada diariamente</span>
@@ -800,7 +822,7 @@
         <div class="testimonial-small">
           <blockquote>"Gracias a los talleres pude identificar y cambiar patrones de pensamiento negativos. Hoy tengo más claridad, nuevas perspectivas y una relación más sana con el dinero y conmigo misma."</blockquote>
           <div class="testimonial-who">
-            <img src="avatar-monica.jpg" alt="" class="testimonial-avatar">
+            <img src="avatar-monica.jpg" alt="" class="testimonial-avatar" loading="lazy">
             <div class="testimonial-meta">
               <span class="testimonial-name">Monica M.</span>
               <span class="testimonial-outcome">Empezó a sanar ciclos repetitivos</span>
@@ -815,16 +837,19 @@
     </div>
   </section>
 
-  <section class="podcast" id="podcast">
+  <section class="videos" id="podcast">
     <div class="wrap">
-      <div class="podcast-grid">
+      <div class="videos-grid">
         <div class="reveal">
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/9y2r2RgLPeM" title="Sanando Vínculos con Amor Propio — Juliana Henao" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <div class="video-embed video-facade" data-video-id="9y2r2RgLPeM" role="button" tabindex="0" aria-label="Reproducir: Sanando Vínculos con Amor Propio — Juliana Henao">
+            <img src="https://i.ytimg.com/vi/9y2r2RgLPeM/hqdefault.jpg" alt="Sanando Vínculos con Amor Propio — Juliana Henao" loading="lazy">
+            <div class="video-facade-play" aria-hidden="true">
+              <svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+            </div>
           </div>
         </div>
-        <div class="podcast-body">
-          <div class="podcast-fresh">Nuevos videos cada semana</div>
+        <div class="videos-body">
+          <div class="videos-fresh">Nuevos videos cada semana</div>
           <h2>Sanación en video</h2>
           <p>Conversaciones honestas sobre bienestar, crecimiento emocional y vivir con más intención. Del canal <em>Cómo Vivir Mejor?</em> en YouTube.</p>
           <div class="ep-list">
@@ -841,7 +866,7 @@
               <div><h4>Estás Tocando Fondo y No lo Sabes?</h4></div>
             </a>
           </div>
-          <a href="https://www.youtube.com/@JulianaHenaoLifecoach" class="btn btn--fill" target="_blank" rel="noopener">Ver en YouTube <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <a href="https://www.youtube.com/@JulianaHenaoLifecoach" class="btn btn--outline" target="_blank" rel="noopener">Ver en YouTube <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
     </div>
@@ -852,7 +877,7 @@
       <div class="nl-inner">
         <div class="nl-text">
           <h2>¿Lista para empezar a sanar?</h2>
-          <p>Cada semana recibirás una reflexión corta, un ejercicio de sanación y acceso anticipado a talleres y guías nuevas — directo a tu bandeja.</p>
+          <p>Estamos preparando algo especial — reflexiones semanales, ejercicios de sanación y acceso anticipado a talleres. Deja tu correo y sé la primera en recibirlo.</p>
         </div>
         <div class="nl-form-wrap">
           <form class="nl-form" id="nlForm" novalidate>
@@ -892,7 +917,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Juliana Henao Life Coach</span>
+        <span>&copy; <span id="copyrightYear"></span> Juliana Henao Life Coach</span>
         <span>Diseñado con intención</span>
       </div>
     </div>
@@ -997,7 +1022,7 @@
       btn.disabled = true;
       input.classList.remove('invalid');
       input.value = '';
-      nlFeedback.innerHTML = '¡Ya estás dentro! Revisa tu bandeja de entrada. <a href="#" id="nlReset" style="color:var(--terra);font-weight:500;">Suscribir otro correo</a>';
+      nlFeedback.innerHTML = '¡Gracias por tu interés! Nuestro newsletter está en camino — te avisaremos cuando lancemos. <a href="#" id="nlReset" style="color:var(--terra);font-weight:500;">Suscribir otro correo</a>';
       nlFeedback.className = 'nl-feedback ok';
       nlForm.style.display = 'none';
       document.getElementById('nlReset').addEventListener('click', (ev) => {
@@ -1014,6 +1039,27 @@
       this.classList.remove('invalid');
       nlFeedback.textContent = '';
       nlFeedback.className = 'nl-feedback';
+    });
+
+    // ── Video facade ──
+    document.querySelectorAll('.video-facade').forEach(el => {
+      function loadVideo() {
+        const id = el.dataset.videoId;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+        iframe.title = el.getAttribute('aria-label').replace('Reproducir: ', '');
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        el.innerHTML = '';
+        el.appendChild(iframe);
+        el.classList.remove('video-facade');
+        el.removeAttribute('role');
+        el.removeAttribute('tabindex');
+        el.removeAttribute('aria-label');
+        el.style.cursor = 'default';
+      }
+      el.addEventListener('click', loadVideo);
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVideo(); } });
     });
 
     // ── Scroll reveals ──
@@ -1041,6 +1087,9 @@
       });
     }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
     sections.forEach(s => navObs.observe(s));
+
+    // ── Copyright year ──
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
     // ── Smooth scroll (closes menu if open) ──
     document.querySelectorAll('a[href^="#"]').forEach(a => {

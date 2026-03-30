@@ -23,7 +23,7 @@ The entire site is in **Spanish**. All UI text, headings, CTAs, labels, meta tag
 - **Credential bar**: Inline single-line format with dot separators. Only Reiki and EFT get inline descriptions — the rest are self-explanatory.
 - **CTAs at conversion moments**: Hero, about section ("Conoce cómo trabajamos juntas →"), offerings, post-testimonials ("¿Lista para tu transformación?"), and newsletter.
 - **Body text contrast**: All body paragraphs use `--text` (#3D3D3D), not `--text-mid`, for consistent readability across cream and blush backgrounds.
-- **Nav link order**: Sobre mí → Testimonios → Videos → Trabaja conmigo → Empieza aquí (follows user journey: who → trust → content → action)
+- **Nav link order**: Sobre mí → Trabaja conmigo → Testimonios → Videos → Empieza aquí (mirrors the page flow: who → offerings → trust → content → action)
 
 ## Images
 - `juliana-hero.jpg` — Main portrait (hero section)
@@ -48,7 +48,7 @@ The entire site is in **Spanish**. All UI text, headings, CTAs, labels, meta tag
 - Burger `aria-label` toggles between "Abrir menú" / "Cerrar menú"
 
 ## Common Gotchas
-- The video section uses CSS class `.podcast` (legacy naming) but the section is for YouTube videos
+- The video section uses CSS class `.videos` and section ID `#podcast` (legacy ID kept for nav anchor compatibility)
 - Newsletter form is front-end only — no backend. Submission hides the form and shows a success message with a "Suscribir otro correo" recovery link. Double-submit is prevented via `nlSubmitting` flag + disabled button.
 - Nav active state is tracked via IntersectionObserver on section IDs
 - Nav container (`nav-inner`) is wider than body content (`max-width + 48px`) to push nav links right, away from the hero photo edge
