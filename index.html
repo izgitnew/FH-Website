@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flourish & Heal | Life Coaching for Bold, Purposeful Living</title>
-  <meta name="description" content="Life coaching for ambitious women ready to break through limiting beliefs, find clarity, and build a life filled with purpose and joy.">
-  <meta property="og:title" content="Flourish & Heal | Life Coaching">
-  <meta property="og:description" content="Create a life you truly love living. Coaching, courses, and community for your next chapter.">
+  <title>Juliana Henao | Life Coach y Terapeuta Holística</title>
+  <meta name="description" content="Coaching de vida y terapia holística para mujeres listas para romper ciclos, sanar desde adentro y construir una vida basada en el amor propio. 25+ años de experiencia.">
+  <meta property="og:title" content="Juliana Henao | Life Coach y Terapeuta Holística">
+  <meta property="og:description" content="Rompe el ciclo. Empieza a sanar desde adentro. Coaching, guías y comunidad para tu transformación.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="juliana-hero.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,6 +96,7 @@
       transition: color 0.3s ease;
     }
     .nav-menu a:hover { color: var(--dark); }
+    .nav-menu a.active { color: var(--terra); }
     .nav-menu .nav-cta {
       font-weight: 600; background: var(--terra); color: #fff;
       padding: 11px 26px; border-radius: 8px;
@@ -114,7 +116,7 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
+      min-height: 92vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -130,7 +132,7 @@
     }
     .hero-eyebrow {
       font-family: var(--accent); font-size: 0.82rem; font-weight: 500;
-      color: var(--terra); letter-spacing: 0.08em; margin-bottom: 20px;
+      color: var(--text-mid); letter-spacing: 0.08em; margin-bottom: 20px;
     }
     .hero h1 {
       font-family: var(--serif);
@@ -170,27 +172,20 @@
 
     .hero-right {
       height: 100%; position: relative;
-      background: linear-gradient(150deg, #e8d5c4 0%, #c7a68f 40%, #a8bda7 100%);
+      background: linear-gradient(150deg, var(--blush) 0%, var(--terra-light) 50%, var(--sage-light) 100%);
       animation: fadeIn 1.2s ease 0.3s forwards; opacity: 0;
     }
-    .hero-right-inner {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 8rem;
-      color: rgba(255,255,255,0.3);
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 20%;
     }
 
-    .hero-stat {
-      position: absolute; bottom: 48px; left: -60px;
-      background: #fff; padding: 20px 24px; border-radius: 14px;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-      z-index: 3;
+    .hero-social-proof {
+      margin-top: 28px; font-size: 0.85rem; color: var(--text-soft);
     }
-    .hero-stat strong {
-      display: block; font-family: var(--serif);
-      font-size: 1.6rem; font-weight: 700; color: var(--terra);
+    .hero-social-proof strong {
+      color: var(--text-mid); font-weight: 600;
     }
-    .hero-stat span { font-size: 0.78rem; color: var(--text-mid); }
 
     /* ── LOGOS ── */
     .logos {
@@ -203,7 +198,7 @@
     }
     .logos-inner span {
       font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
-      color: var(--text); opacity: 0.22;
+      color: var(--text); opacity: 0.3;
       transition: opacity 0.3s ease;
     }
     .logos-inner span:hover { opacity: 0.5; }
@@ -222,10 +217,10 @@
     }
     .about-photo-inner {
       width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 5rem;
-      color: rgba(255,255,255,0.4);
-      background: linear-gradient(150deg, #b8c9b7 0%, #d4c5b5 60%, #c7a68f 100%);
+    }
+    .about-photo-inner img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 15%;
     }
     .about-body h2 {
       font-family: var(--serif);
@@ -243,72 +238,79 @@
       margin-top: 24px;
     }
 
-    /* ── SERVICES ── */
-    .services {
+    /* ── WORK WITH ME ── */
+    .offerings {
       padding: 100px 0 120px;
       background: var(--cream);
     }
-    .services-top {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 56px; gap: 40px;
+    .offerings-intro {
+      margin-bottom: 56px;
     }
-    .services-top h2 {
+    .offerings-intro h2 {
       font-family: var(--serif);
       font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 600; line-height: 1.2;
-      color: var(--dark); max-width: 500px;
+      color: var(--dark); margin-bottom: 8px;
     }
-    .services-top p {
-      color: var(--text-mid); font-size: 0.95rem;
-      max-width: 340px; text-align: right;
+    .offerings-intro p {
+      color: var(--text-mid); font-size: 1rem; max-width: 540px;
     }
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 20px;
+    .offering-primary {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 36px 0;
     }
-    .svc {
-      padding: 40px 36px;
-      border-radius: 16px;
-      position: relative;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    .offering-primary h3 {
+      font-family: var(--serif); font-size: 1.7rem; font-weight: 600;
+      color: var(--dark); margin-bottom: 14px;
     }
-    .svc:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.07);
+    .offering-primary p {
+      color: var(--text-mid); font-size: 1.05rem; line-height: 1.8;
+      max-width: 600px; margin-bottom: 16px;
     }
-    .svc--main {
-      grid-row: 1 / 3;
-      background: var(--dark); color: #fff;
-      padding: 52px 44px;
-      border-radius: 20px;
-      display: flex; flex-direction: column; justify-content: space-between;
+    .offering-primary-meta {
+      font-size: 0.82rem; color: var(--text-soft); margin-bottom: 28px;
     }
-    .svc--main h3 { color: #fff; font-size: 1.7rem; }
-    .svc--main p { color: rgba(255,255,255,0.65); font-size: 1.02rem; line-height: 1.75; }
-    .svc--main .svc-link { color: var(--terra-light); }
-    .svc--alt { background: var(--warm-white); }
-    .svc-num {
-      font-family: var(--serif); font-size: 3rem; font-weight: 700;
-      opacity: 0.08; position: absolute; top: 20px; right: 28px;
-    }
-    .svc--main .svc-num { color: #fff; opacity: 0.06; font-size: 5rem; top: 24px; right: 32px; }
-    .svc h3 {
-      font-family: var(--serif); font-size: 1.3rem; font-weight: 600;
-      color: var(--dark); margin-bottom: 10px;
-    }
-    .svc p {
-      color: var(--text-mid); font-size: 0.92rem; line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .svc-link {
+    .offering-link {
       font-family: var(--accent); font-size: 0.84rem; font-weight: 600;
       color: var(--terra); display: inline-flex; align-items: center; gap: 6px;
       transition: gap 0.3s ease;
     }
-    .svc-link:hover { gap: 10px; }
-    .svc-link svg { width: 14px; height: 14px; }
+    .offering-link:hover { gap: 10px; }
+    .offering-link svg { width: 14px; height: 14px; }
+    .offering-pair {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .offering-course {
+      padding: 36px 40px 36px 0;
+      border-right: 1px solid rgba(0,0,0,0.08);
+    }
+    .offering-course-inner {
+      display: flex; gap: 24px; align-items: flex-start;
+    }
+    .offering-thumb {
+      width: 100px; height: 100px; border-radius: 10px;
+      object-fit: cover; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .offering-mastermind {
+      padding: 36px 0 36px 40px;
+    }
+    .offering-tag {
+      font-family: var(--accent); font-size: 0.75rem; font-weight: 600;
+      color: var(--terra); margin-bottom: 12px;
+    }
+    .offering-course h3, .offering-mastermind h3 {
+      font-family: var(--serif); font-size: 1.35rem; font-weight: 600;
+      color: var(--dark); margin-bottom: 10px;
+    }
+    .offering-course p, .offering-mastermind p {
+      color: var(--text-mid); font-size: 0.95rem; line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .offering-detail {
+      font-size: 0.82rem; color: var(--text-soft); margin-bottom: 20px;
+    }
 
     /* ── QUOTE ── */
     .quote-section {
@@ -336,151 +338,68 @@
     }
 
     /* ── TESTIMONIALS ── */
-    .stories {
-      padding: 120px 0 100px;
+    .testimonial {
+      padding: 100px 0 80px;
     }
-    .stories-top {
-      margin-bottom: 52px;
+    .testimonial-label {
+      font-family: var(--accent); font-size: 0.82rem; font-weight: 500;
+      color: var(--terra); letter-spacing: 0.04em; margin-bottom: 24px;
     }
-    .stories-top h2 {
+    .testimonial-featured {
+      max-width: 680px; margin-bottom: 56px;
+    }
+    .testimonial-featured blockquote {
       font-family: var(--serif);
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-      font-weight: 600; line-height: 1.2;
-      color: var(--dark); margin-bottom: 8px;
+      font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+      font-weight: 400; font-style: italic; line-height: 1.55;
+      color: var(--dark); margin-bottom: 20px;
     }
-    .stories-top p {
-      color: var(--text-mid); font-size: 1rem;
+    .testimonial-who {
+      display: flex; align-items: center; gap: 14px;
     }
-    .stories-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 20px;
-    }
-    .story {
-      background: var(--cream); border-radius: 16px;
-      padding: 36px 32px; position: relative;
-    }
-    .story--big {
-      grid-row: 1 / 3;
-      background: linear-gradient(160deg, var(--blush), var(--cream));
-      border-radius: 20px;
-      padding: 44px 40px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .story--big p {
-      font-size: 1.15rem; line-height: 1.85;
-    }
-    .story p {
-      font-size: 0.95rem; line-height: 1.8;
-      color: var(--text); font-style: italic;
-      margin-bottom: 24px;
-    }
-    .story-who {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .story-avatar {
+    .testimonial-avatar {
       width: 44px; height: 44px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 1rem; font-weight: 600;
-      color: #fff;
+      object-fit: cover;
     }
-    .story:nth-child(1) .story-avatar { background: var(--terra); }
-    .story:nth-child(2) .story-avatar { background: var(--sage); }
-    .story:nth-child(3) .story-avatar { background: var(--gold); }
-    .story-name {
-      font-family: var(--accent); font-weight: 600;
-      font-size: 0.9rem; color: var(--dark);
+    .testimonial-meta {
+      display: flex; flex-direction: column;
     }
-    .story-role { font-size: 0.78rem; color: var(--text-mid); }
-
-    /* ── PROGRAMS ── */
-    .programs {
-      padding: 100px 0 130px;
-      background: var(--cream);
+    .testimonial-name {
+      font-family: var(--accent); font-weight: 600; font-size: 0.9rem; color: var(--dark);
     }
-    .programs-top {
-      margin-bottom: 52px;
+    .testimonial-outcome {
+      font-size: 0.78rem; color: var(--text-mid); font-style: italic;
     }
-    .programs-top h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-      font-weight: 600; line-height: 1.2;
-      color: var(--dark); margin-bottom: 8px;
+    .testimonial-pair {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      padding-top: 36px; border-top: 1px solid rgba(0,0,0,0.08);
     }
-    .programs-top p { color: var(--text-mid); font-size: 1rem; }
-    .programs-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    .testimonial-small blockquote {
+      font-size: 0.95rem; font-style: italic; line-height: 1.75;
+      color: var(--text); margin-bottom: 16px;
     }
-    .prog {
-      border-radius: 16px; overflow: hidden;
-      background: var(--warm-white);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    .testimonial-small .testimonial-who {
+      gap: 12px;
     }
-    .prog:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.07);
+    .testimonial-small .testimonial-avatar {
+      width: 36px; height: 36px;
     }
-    .prog-img {
-      height: 220px; position: relative; overflow: hidden;
-    }
-    .prog-img-inner {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .prog:nth-child(1) .prog-img-inner { background: linear-gradient(135deg, #c7a68f, #e8d5c4); }
-    .prog:nth-child(2) .prog-img-inner { background: linear-gradient(135deg, var(--sage), var(--sage-light)); }
-    .prog-img-inner svg { opacity: 0.5; }
-    .prog-badge {
-      position: absolute; top: 14px; left: 14px;
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
-      padding: 5px 14px; border-radius: 6px;
-      font-family: var(--accent); font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.06em; color: var(--terra);
-    }
-    .prog-body { padding: 28px 28px 32px; }
-    .prog-body h3 {
-      font-family: var(--serif); font-size: 1.35rem; font-weight: 600;
-      color: var(--dark); margin-bottom: 10px;
-    }
-    .prog-body p {
-      color: var(--text-mid); font-size: 0.92rem; line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .prog-meta {
-      display: flex; gap: 16px; padding-top: 16px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-    .prog-meta span {
-      font-family: var(--accent); font-size: 0.78rem; color: var(--text-mid);
-      display: flex; align-items: center; gap: 5px;
-    }
-    .prog-meta svg { width: 13px; height: 13px; opacity: 0.5; }
 
     /* ── PODCAST ── */
     .podcast {
       padding: 120px 0 100px;
     }
     .podcast-grid {
-      display: grid; grid-template-columns: 1fr 1.2fr;
-      gap: 72px; align-items: center;
+      display: grid; grid-template-columns: 1.3fr 1fr;
+      gap: 56px; align-items: center;
     }
-    .podcast-cover {
-      border-radius: 20px; overflow: hidden; aspect-ratio: 1;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.1);
+    .video-embed {
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 16/9;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
     }
-    .podcast-cover-inner {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 14px;
-      background: linear-gradient(135deg, var(--dark) 0%, #3a2a20 100%);
-      color: #fff; font-family: var(--serif);
-    }
-    .podcast-cover-inner svg { opacity: 0.8; }
-    .podcast-cover-inner .pc-title { font-size: 1.3rem; font-weight: 600; }
-    .podcast-cover-inner .pc-sub {
-      font-family: var(--accent); font-size: 0.72rem;
-      letter-spacing: 0.15em; opacity: 0.5;
+    .video-embed iframe {
+      width: 100%; height: 100%; border: none;
     }
     .podcast-body h2 {
       font-family: var(--serif);
@@ -494,22 +413,18 @@
     .ep-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
     .ep {
       display: flex; align-items: center; gap: 14px;
-      padding: 14px 18px; background: var(--cream); border-radius: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: padding-left 0.3s ease;
     }
-    .ep:hover { background: var(--blush); transform: translateX(3px); }
-    .ep-play {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--terra); display: flex;
-      align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .ep-play svg { width: 12px; height: 12px; color: #fff; margin-left: 1px; }
+    .ep:hover { padding-left: 8px; }
     .ep h4 {
       font-family: var(--accent); font-size: 0.88rem; font-weight: 600;
       color: var(--dark);
+      transition: color 0.3s ease;
     }
-    .ep span { font-size: 0.78rem; color: var(--text-mid); }
+    .ep:hover h4 { color: var(--terra); }
 
     /* ── NEWSLETTER ── */
     .newsletter {
@@ -563,14 +478,14 @@
       color: rgba(255,255,255,0.55);
     }
     .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      display: grid; grid-template-columns: 1.5fr 1fr;
       gap: 52px; margin-bottom: 52px;
     }
     .footer-brand .nav-logo { color: #fff; margin-bottom: 14px; }
-    .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 280px; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 360px; }
     .footer-social { display: flex; gap: 10px; margin-top: 20px; }
     .footer-social a {
-      width: 36px; height: 36px; border-radius: 8px;
+      width: 44px; height: 44px; border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.12);
       display: flex; align-items: center; justify-content: center;
       transition: background 0.3s ease, border-color 0.3s ease;
@@ -579,7 +494,7 @@
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
     .ft-col h4 {
       font-family: var(--accent); font-size: 0.82rem; font-weight: 600;
-      color: rgba(255,255,255,0.35); margin-bottom: 16px;
+      color: rgba(255,255,255,0.5); margin-bottom: 16px;
     }
     .ft-col ul { list-style: none; }
     .ft-col li { margin-bottom: 10px; }
@@ -591,6 +506,20 @@
       font-size: 0.78rem;
     }
 
+    /* ── BACK TO TOP ── */
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--terra); color: #fff; border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s ease;
+      box-shadow: 0 4px 16px rgba(181,104,75,0.25);
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { background: var(--terra-dark); transform: translateY(-2px); }
+    .back-to-top svg { width: 18px; height: 18px; }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -601,8 +530,8 @@
       to { opacity: 1; }
     }
     .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -621,14 +550,12 @@
       .hero-p { margin-left: auto; margin-right: auto; }
       .hero-actions { justify-content: center; }
       .hero-right { height: 50vh; }
-      .hero-stat { left: 24px; bottom: 24px; }
       .about-grid, .podcast-grid { grid-template-columns: 1fr; gap: 48px; }
-      .services-top { flex-direction: column; align-items: flex-start; }
-      .services-top p { text-align: left; }
-      .services-grid { grid-template-columns: 1fr; }
-      .svc--main { grid-row: auto; }
-      .stories-grid { grid-template-columns: 1fr; }
-      .story--big { grid-row: auto; }
+      .offering-pair { grid-template-columns: 1fr; }
+      .offering-course { border-right: none; padding: 36px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+      .offering-mastermind { padding: 36px 0; }
+      .offering-course-inner { flex-direction: row; }
+      .testimonial-pair { grid-template-columns: 1fr; gap: 32px; }
       .nl-inner { flex-direction: column; text-align: center; }
       .nl-text p { margin: 0 auto; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -643,10 +570,10 @@
         padding: 20px; gap: 16px;
         box-shadow: 0 16px 40px rgba(0,0,0,0.08);
       }
-      .programs-grid { grid-template-columns: 1fr; }
+      .podcast-grid { grid-template-columns: 1fr; gap: 48px; }
       .nl-form { flex-direction: column; }
       .nl-form input { width: 100%; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       .quote-inner { flex-direction: column; gap: 16px; }
     }
@@ -657,20 +584,19 @@
 </head>
 <body>
 
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">Ir al contenido principal</a>
 
   <nav class="nav" id="nav" role="navigation" aria-label="Main">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Flourish<span>&amp;</span>Heal</a>
+      <a href="#" class="nav-logo">Juliana<span>Henao</span></a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#programs">Programs</a></li>
-        <li><a href="#podcast">Podcast</a></li>
-        <li><a href="#stories">Stories</a></li>
-        <li><a href="#newsletter" class="nav-cta">Start here</a></li>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#services">Trabaja conmigo</a></li>
+        <li><a href="#podcast">Videos</a></li>
+        <li><a href="#stories">Testimonios</a></li>
+        <li><a href="#newsletter" class="nav-cta">Empieza aquí</a></li>
       </ul>
-      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -680,34 +606,31 @@
 
   <section class="hero">
     <div class="hero-left">
-      <p class="hero-eyebrow">Life Coach &amp; Mentor</p>
-      <h1>Create a life you truly love living</h1>
-      <p class="hero-p">I help ambitious women break through limiting beliefs, find clarity in their purpose, and build a life filled with meaning, joy, and unstoppable confidence.</p>
+      <p class="hero-eyebrow">Life Coach y Terapeuta Holística</p>
+      <h1>Rompe el ciclo. Empieza a sanar desde adentro.</h1>
+      <p class="hero-p">Ayudo a mujeres a liberar las emociones que las detienen, romper patrones dañinos y reconectarse con el amor propio que merecen. 25+ años guiando transformación en Colombia y Estados Unidos.</p>
       <div class="hero-actions">
-        <a href="#newsletter" class="btn btn--fill">Begin your journey</a>
+        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Comienza tu sanación</a>
         <a href="#about" class="btn btn--ghost">
-          Learn more
+          Conoce más
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
+      <p class="hero-social-proof">Más de <strong>2,000</strong> mujeres confían en este proceso</p>
     </div>
     <div class="hero-right">
-      <div class="hero-right-inner">FH</div>
-      <div class="hero-stat">
-        <strong>2,500+</strong>
-        <span>Lives transformed</span>
-      </div>
+      <img src="juliana-hero.jpg" alt="Juliana Henao, Life Coach y Terapeuta Holística">
     </div>
   </section>
 
-  <section class="logos" aria-label="Featured in">
+  <section class="logos" aria-label="Certificaciones y modalidades">
     <div class="wrap">
       <div class="logos-inner">
-        <span>Forbes</span>
-        <span>Vogue</span>
-        <span>The New York Times</span>
-        <span>Oprah Daily</span>
-        <span>MindBodyGreen</span>
+        <span>Life Coach Certificada</span>
+        <span>Practicante de Reiki</span>
+        <span>EFT Tapping</span>
+        <span>Emotion Codes</span>
+        <span>Access Bars</span>
       </div>
     </div>
   </section>
@@ -716,138 +639,97 @@
     <div class="wrap">
       <div class="about-grid">
         <div class="about-photo reveal">
-          <div class="about-photo-inner">FH</div>
+          <div class="about-photo-inner"><img src="juliana-author.jpg" alt="Juliana Henao"></div>
         </div>
-        <div class="about-body reveal">
-          <h2>Hi, I'm Sarah. I believe you were made for more.</h2>
-          <p>After spending a decade in corporate leadership, I discovered my true calling: helping others unlock the extraordinary life waiting inside them. I left a six-figure career to follow my purpose and I've never looked back.</p>
-          <p>Through a blend of neuroscience-backed strategies, intuitive coaching, and actionable frameworks, I've helped thousands of women step into their power, rewrite their stories, and create businesses and lives beyond their wildest dreams.</p>
-          <div class="about-sig">Sarah Mitchell</div>
+        <div class="about-body">
+          <h2>Hola, soy Juliana. He caminado el mismo camino que hoy te guío a recorrer.</h2>
+          <p>Llegué a Estados Unidos desde Colombia en 2004 con mi esposo, dos hijos pequeños y un título en trabajo social. A pesar de mi experiencia, empecé de cero — trabajando en la cocina de un restaurante mientras construía una nueva vida. Ese camino me enseñó todo sobre la resiliencia, el amor propio y lo que realmente significa sanar desde adentro.</p>
+          <p>Hoy, con más de 25 años de experiencia, un MBA y certificaciones en life coaching, Reiki, EFT Tapping y Emotion Codes, ayudo a mujeres a soltar el peso de las emociones acumuladas y dar el paso hacia una vida que realmente amen.</p>
+          <div class="about-sig">Juliana Henao</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="services" id="services">
+  <section class="offerings" id="services">
     <div class="wrap">
-      <div class="services-top reveal">
-        <h2>Coaching that meets you where you are</h2>
-        <p>Whether you're navigating a career pivot, building a business, or rediscovering yourself.</p>
+      <div class="offerings-intro">
+        <h2>Trabaja conmigo</h2>
+        <p>Ya sea que cargues peso emocional, estés atrapada en un ciclo que no puedes romper, o simplemente lista para más — hay un camino aquí para ti.</p>
       </div>
-      <div class="services-grid">
-        <div class="svc svc--main reveal">
-          <div class="svc-num">01</div>
-          <div>
-            <h3>1:1 Coaching</h3>
-            <p>Deep, personalized work designed to uncover your blocks, define your vision, and create a strategic plan to get there. This is transformation at its most intimate and powerful.</p>
-            <a href="#newsletter" class="svc-link">Apply now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <div class="offering-primary">
+        <h3>Coaching 1:1 y Terapia Holística</h3>
+        <p>Sesiones personalizadas que combinan life coaching con modalidades holísticas — Reiki, EFT Tapping, Emotion Codes y Access Bars. Trabajamos juntas para soltar lo que te ha detenido y construir una base de amor propio genuino.</p>
+        <div class="offering-primary-meta">Virtual y presencial · Sesiones de 60 min · Horarios flexibles</div>
+        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Agenda tu sesión</a>
+      </div>
+      <div class="offering-pair">
+        <div class="offering-course">
+          <div class="offering-course-inner">
+            <img src="guide-cover.jpg" alt="30 Días de Amor Propio guide cover" class="offering-thumb">
+            <div>
+              <div class="offering-tag">Guía digital</div>
+              <h3>30 Días de Amor Propio</h3>
+              <p>Ejercicios diarios, meditaciones y prácticas terapéuticas. Solo 5–10 minutos al día para empezar a liberar emociones y romper patrones dañinos.</p>
+              <div class="offering-detail">2,000+ descargas · Garantía de 7 días</div>
+              <a href="https://julianahenaolifecoach.com" class="offering-link" target="_blank" rel="noopener">Obtener la guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
           </div>
         </div>
-        <div class="svc svc--alt reveal">
-          <div class="svc-num">02</div>
-          <h3>Group Programs</h3>
-          <p>Join a community of like-minded women. Gain accountability, connection, and proven strategies to level up together.</p>
-          <a href="#programs" class="svc-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        </div>
-        <div class="svc svc--alt reveal">
-          <div class="svc-num">03</div>
-          <h3>Digital Courses</h3>
-          <p>Self-paced programs that fit your schedule. From mindset mastery to business building, results on your timeline.</p>
-          <a href="#programs" class="svc-link">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <div class="offering-mastermind">
+          <div class="offering-tag">Comunidad</div>
+          <h3>Mujeres Marcando el Camino</h3>
+          <p>Un espacio de empoderamiento para mujeres hispanas en Estados Unidos. Talleres, grupos de apoyo e historias compartidas para mujeres construyendo nuevas vidas con coraje y autocompasión.</p>
+          <div class="offering-detail">Virtual y presencial · Metro Atlanta</div>
+          <a href="https://wa.link/atw69s" class="offering-link" target="_blank" rel="noopener">Únete por WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="quote-section" aria-label="Quote">
+  <section class="quote-section" aria-label="Frase">
     <div class="wrap">
       <div class="quote-inner reveal">
         <div class="quote-mark" aria-hidden="true">&ldquo;</div>
         <div>
-          <blockquote>The world needs that special gift that only you have. Stop waiting for permission. Your time is now.</blockquote>
-          <cite>Sarah Mitchell</cite>
+          <blockquote>Sanar no se trata de convertirte en alguien nueva. Se trata de finalmente volver a casa contigo misma.</blockquote>
+          <cite>Juliana Henao</cite>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="stories" id="stories">
+  <section class="testimonial" id="stories">
     <div class="wrap">
-      <div class="stories-top reveal">
-        <h2>Real women, real results</h2>
-        <p>A few of the transformations from our community.</p>
-      </div>
-      <div class="stories-grid">
-        <div class="story story--big reveal">
-          <p>"Working with Sarah completely shifted my perspective. I went from feeling stuck in a career I hated to launching my own wellness brand in under 6 months. She saw something in me I couldn't see in myself."</p>
-          <div class="story-who">
-            <div class="story-avatar">JR</div>
-            <div>
-              <div class="story-name">Jessica Rivera</div>
-              <div class="story-role">Wellness Entrepreneur</div>
-            </div>
-          </div>
-        </div>
-        <div class="story reveal">
-          <p>"Her coaching gave me the tools and confidence to rebuild. I now run a team of 12 and wake up excited every morning."</p>
-          <div class="story-who">
-            <div class="story-avatar">AK</div>
-            <div>
-              <div class="story-name">Amara Kofi</div>
-              <div class="story-role">Creative Director</div>
-            </div>
-          </div>
-        </div>
-        <div class="story reveal">
-          <p>"The group program was a game-changer. Exactly what I needed to finally take the leap and live on my own terms."</p>
-          <div class="story-who">
-            <div class="story-avatar">LP</div>
-            <div>
-              <div class="story-name">Lauren Park</div>
-              <div class="story-role">Author &amp; Coach</div>
-            </div>
+      <div class="testimonial-label">En sus propias palabras</div>
+      <div class="testimonial-featured">
+        <blockquote>"Quiero agradecer profundamente a Juliana Henao. Sus talleres de crecimiento personal han sido una experiencia muy valiosa para mí y marcaron un antes y un después en mi proceso personal."</blockquote>
+        <div class="testimonial-who">
+          <img src="avatar-nancy.jpg" alt="" class="testimonial-avatar">
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Nancy S.</span>
+            <span class="testimonial-outcome">Recuperó su claridad emocional</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="programs" id="programs">
-    <div class="wrap">
-      <div class="programs-top reveal">
-        <h2>Your next chapter starts here</h2>
-        <p>Programs designed for lasting transformation from the inside out.</p>
-      </div>
-      <div class="programs-grid">
-        <div class="prog reveal">
-          <div class="prog-img">
-            <div class="prog-img-inner">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            </div>
-            <div class="prog-badge">Signature Course</div>
-          </div>
-          <div class="prog-body">
-            <h3>The Clarity Method</h3>
-            <p>An 8-week deep-dive into purpose, mindset, and strategic action for the woman who needs a clear roadmap.</p>
-            <div class="prog-meta">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 Weeks</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Small Cohort</span>
+      <div class="testimonial-pair">
+        <div class="testimonial-small">
+          <blockquote>"Esta guía transformó mi forma de pensar y expresarme. Empecé a ser más consciente de mis palabras y eso trajo cambios reales en mi tranquilidad emocional y en mi bienestar económico."</blockquote>
+          <div class="testimonial-who">
+            <img src="avatar-lina.jpg" alt="" class="testimonial-avatar">
+            <div class="testimonial-meta">
+              <span class="testimonial-name">Lina María P.</span>
+              <span class="testimonial-outcome">Se sintió acompañada diariamente</span>
             </div>
           </div>
         </div>
-        <div class="prog reveal">
-          <div class="prog-img">
-            <div class="prog-img-inner">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <div class="prog-badge">Mastermind</div>
-          </div>
-          <div class="prog-body">
-            <h3>Flourish Academy</h3>
-            <p>A 6-month mastermind for women ready to scale. Weekly coaching, expert speakers, and a private community.</p>
-            <div class="prog-meta">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 Months</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 20 Max</span>
+        <div class="testimonial-small">
+          <blockquote>"Gracias a los talleres pude identificar y cambiar patrones de pensamiento negativos. Hoy tengo más claridad, nuevas perspectivas y una relación más sana con el dinero y conmigo misma."</blockquote>
+          <div class="testimonial-who">
+            <img src="avatar-monica.jpg" alt="" class="testimonial-avatar">
+            <div class="testimonial-meta">
+              <span class="testimonial-name">Monica M.</span>
+              <span class="testimonial-outcome">Empezó a sanar ciclos repetitivos</span>
             </div>
           </div>
         </div>
@@ -859,32 +741,25 @@
     <div class="wrap">
       <div class="podcast-grid">
         <div class="reveal">
-          <div class="podcast-cover">
-            <div class="podcast-cover-inner">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-              <div class="pc-title">The Flourish Podcast</div>
-              <div class="pc-sub">With Sarah Mitchell</div>
-            </div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/9y2r2RgLPeM" title="Sanando Vínculos con Amor Propio — Juliana Henao" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
-        <div class="podcast-body reveal">
-          <h2>The Flourish Podcast</h2>
-          <p>Weekly conversations on purpose, ambition, and building a life that lights you up. Available everywhere you listen.</p>
+        <div class="podcast-body">
+          <h2>Cómo Vivir Mejor?</h2>
+          <p>Conversaciones sobre bienestar, crecimiento emocional y vivir con más intención. Videos nuevos cada semana en YouTube.</p>
           <div class="ep-list">
-            <div class="ep" role="button" tabindex="0">
-              <div class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <div><h4>Ep. 142: The Myth of Having It All Together</h4><span>38 min</span></div>
-            </div>
-            <div class="ep" role="button" tabindex="0">
-              <div class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <div><h4>Ep. 141: Why Your Comfort Zone Is Costing You</h4><span>42 min</span></div>
-            </div>
-            <div class="ep" role="button" tabindex="0">
-              <div class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-              <div><h4>Ep. 140: From Burnout to Breakthrough</h4><span>35 min</span></div>
-            </div>
+            <a href="https://www.youtube.com/watch?v=5K8Ihyy01l8" class="ep" target="_blank" rel="noopener">
+              <div><h4>5 Lecciones de Amor Propio en "El Principito"</h4></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=y63V-5as4Kc" class="ep" target="_blank" rel="noopener">
+              <div><h4>7 Prácticas para Sanarte y Volver a Ti</h4></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=1E8mtBnDjGg" class="ep" target="_blank" rel="noopener">
+              <div><h4>Estás Tocando Fondo y No lo Sabes?</h4></div>
+            </a>
           </div>
-          <a href="#newsletter" class="btn btn--fill">Listen now</a>
+          <a href="https://www.youtube.com/@JulianaHenaoLifecoach" class="btn btn--fill" target="_blank" rel="noopener">Ver en YouTube</a>
         </div>
       </div>
     </div>
@@ -894,16 +769,16 @@
     <div class="wrap">
       <div class="nl-inner">
         <div class="nl-text">
-          <h2>Ready to flourish?</h2>
-          <p>Join 25,000+ women getting weekly inspiration, coaching insights, and first access to everything new.</p>
+          <h2>¿Lista para empezar a sanar?</h2>
+          <p>Únete a mujeres que eligen el amor propio cada día. Recibe consejos semanales, prácticas de sanación y acceso anticipado a nuevos recursos.</p>
         </div>
         <div class="nl-form-wrap">
           <form class="nl-form" id="nlForm" novalidate>
-            <input type="email" placeholder="Your email" required aria-label="Email address">
-            <button type="submit">Subscribe</button>
+            <input type="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
+            <button type="submit">Suscribirme</button>
           </form>
           <div class="nl-feedback" id="nlFeedback" role="status" aria-live="polite"></div>
-          <p class="nl-fine">No spam, ever. Unsubscribe anytime.</p>
+          <p class="nl-fine">Sin spam, nunca. Cancela cuando quieras.</p>
         </div>
       </div>
     </div>
@@ -915,50 +790,35 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="nav-logo">Flourish<span>&amp;</span>Heal</div>
-          <p>Empowering ambitious women to create purposeful, joyful lives they love.</p>
+          <div class="nav-logo">Juliana<span>Henao</span></div>
+          <p>Ayudando a mujeres a sanar desde adentro y construir vidas con amor propio y propósito.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.instagram.com/julianahenaolifecoach/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.youtube.com/@JulianaHenaoLifecoach" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61578458387515" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.linkedin.com/in/juliana-henao/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
           </div>
         </div>
         <div class="ft-col">
-          <h4>Navigate</h4>
+          <h4>Conectar</h4>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#podcast">Podcast</a></li>
-            <li><a href="#stories">Stories</a></li>
-          </ul>
-        </div>
-        <div class="ft-col">
-          <h4>Programs</h4>
-          <ul>
-            <li><a href="#programs">The Clarity Method</a></li>
-            <li><a href="#programs">Flourish Academy</a></li>
-            <li><a href="#services">1:1 Coaching</a></li>
-            <li><a href="#newsletter">Free Resources</a></li>
-          </ul>
-        </div>
-        <div class="ft-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="#newsletter">Contact</a></li>
-            <li><a href="#about">Speaking</a></li>
-            <li><a href="#about">Press</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="mailto:fjhenao@gmail.com">fjhenao@gmail.com</a></li>
+            <li><a href="https://wa.link/atw69s" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://julianahenaolifecoach.com" target="_blank" rel="noopener">Sitio principal</a></li>
+            <li><a href="#services">Trabaja conmigo</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Flourish &amp; Heal</span>
-        <span>Designed with intention</span>
+        <span>&copy; 2026 Juliana Henao Life Coach</span>
+        <span>Diseñado con intención</span>
       </div>
     </div>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
 
   <script>
     const nav = document.getElementById('nav');
@@ -966,16 +826,22 @@
     const burger = document.getElementById('burger');
     const nlForm = document.getElementById('nlForm');
     const nlFeedback = document.getElementById('nlFeedback');
+    const backToTop = document.getElementById('backToTop');
 
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           nav.classList.toggle('scrolled', window.scrollY > 60);
+          backToTop.classList.toggle('visible', window.scrollY > 600);
           ticking = false;
         });
         ticking = true;
       }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     burger.addEventListener('click', () => {
@@ -989,15 +855,21 @@
       const email = input.value.trim();
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         input.classList.add('invalid');
-        nlFeedback.textContent = email ? 'Please enter a valid email.' : 'Please enter your email.';
+        nlFeedback.textContent = email ? 'Por favor ingresa un correo válido.' : 'Por favor ingresa tu correo.';
         nlFeedback.className = 'nl-feedback err';
         return;
       }
       input.classList.remove('invalid');
       input.value = '';
-      nlForm.style.display = 'none';
-      nlFeedback.textContent = "You're in! Check your inbox for a welcome email.";
+      nlFeedback.innerHTML = '¡Ya estás dentro! Revisa tu bandeja de entrada. <a href="#" id="nlReset" style="color:var(--terra);font-weight:500;">Suscribir otro correo</a>';
       nlFeedback.className = 'nl-feedback ok';
+      nlForm.style.display = 'none';
+      document.getElementById('nlReset').addEventListener('click', (ev) => {
+        ev.preventDefault();
+        nlForm.style.display = 'flex';
+        nlFeedback.textContent = '';
+        nlFeedback.className = 'nl-feedback';
+      });
     });
 
     nlForm.querySelector('input').addEventListener('input', function() {
@@ -1007,16 +879,29 @@
     });
 
     const reveals = document.querySelectorAll('.reveal');
-    let rc = 0;
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), rc++ * 80);
+          entry.target.classList.add('visible');
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => obs.observe(el));
+
+    // Nav active state
+    const navLinks = document.querySelectorAll('.nav-menu a:not(.nav-cta)');
+    const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.nav-menu a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
+    sections.forEach(s => navObs.observe(s));
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
