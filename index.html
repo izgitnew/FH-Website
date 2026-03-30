@@ -79,14 +79,20 @@
       box-shadow: 0 1px 30px rgba(0,0,0,0.06);
     }
     .nav-inner {
-      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+      max-width: calc(var(--max-w) + 48px); margin: 0 auto; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
       font-family: var(--serif); font-size: 1.5rem; font-weight: 600;
       color: var(--dark); letter-spacing: -0.02em;
+      display: inline-flex; align-items: center; gap: 8px;
     }
-    .nav-logo span { color: var(--terra); }
+    .nav-logo span { color: var(--terra); font-style: italic; }
+    .nav-logo-leaf {
+      width: 20px; height: 20px; color: var(--sage);
+      transition: transform 0.4s ease;
+    }
+    .nav-logo:hover .nav-logo-leaf { transform: rotate(-12deg) scale(1.1); }
     .nav-menu {
       display: flex; align-items: center; gap: 32px; list-style: none;
     }
@@ -107,32 +113,45 @@
     }
     .burger {
       display: none; background: none; border: none; cursor: pointer; padding: 4px;
-      flex-direction: column; gap: 5px;
+      flex-direction: column; gap: 5px; width: 30px; height: 22px;
+      position: relative; justify-content: center;
     }
     .burger span {
       width: 22px; height: 2px; background: var(--dark); border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease;
+      position: absolute; left: 4px;
     }
+    .burger span:nth-child(1) { top: 2px; }
+    .burger span:nth-child(2) { top: 10px; }
+    .burger span:nth-child(3) { top: 18px; }
+    .burger.open span:nth-child(1) { top: 10px; transform: rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 92vh;
+      min-height: 85vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
+      align-items: start;
       background: var(--cream);
       position: relative;
       overflow: hidden;
     }
     .hero-left {
-      padding: 160px 0 100px 0;
+      padding: 180px 0 48px 0;
       padding-left: max(24px, calc((100vw - var(--max-w)) / 2 + 24px));
       padding-right: 60px;
       animation: fadeUp 0.9s ease forwards;
     }
     .hero-eyebrow {
-      font-family: var(--accent); font-size: 0.82rem; font-weight: 500;
-      color: var(--text-mid); letter-spacing: 0.08em; margin-bottom: 20px;
+      font-family: var(--accent); font-size: 0.85rem; font-weight: 500;
+      color: var(--terra); letter-spacing: 0.06em; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 24px; height: 1.5px; background: var(--terra); flex-shrink: 0;
     }
     .hero h1 {
       font-family: var(--serif);
@@ -143,7 +162,7 @@
     }
     .hero-p {
       font-size: 1.12rem; line-height: 1.8;
-      color: var(--text-mid); margin-bottom: 36px;
+      color: var(--text); margin-bottom: 36px;
       max-width: 460px;
     }
     .hero-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
@@ -175,33 +194,39 @@
       background: linear-gradient(150deg, var(--blush) 0%, var(--terra-light) 50%, var(--sage-light) 100%);
       animation: fadeIn 1.2s ease 0.3s forwards; opacity: 0;
     }
+    .hero-right::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 80px; pointer-events: none;
+      background: linear-gradient(to bottom, transparent, var(--cream));
+    }
     .hero-right img {
       width: 100%; height: 100%; object-fit: cover;
       object-position: center 20%;
     }
 
-    .hero-social-proof {
-      margin-top: 28px; font-size: 0.85rem; color: var(--text-soft);
-    }
-    .hero-social-proof strong {
-      color: var(--text-mid); font-weight: 600;
-    }
-
-    /* ── LOGOS ── */
-    .logos {
-      padding: 44px 0;
+    /* ── MODALITIES ── */
+    .modalities {
+      padding: 36px 0;
       border-bottom: 1px solid rgba(0,0,0,0.04);
     }
-    .logos-inner {
+    .modalities-inner {
       display: flex; align-items: center; justify-content: center;
-      gap: 48px; flex-wrap: wrap;
+      gap: 12px; flex-wrap: wrap;
+      font-family: var(--accent); font-size: 0.84rem;
+      color: var(--text-mid);
     }
-    .logos-inner span {
-      font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
-      color: var(--text); opacity: 0.3;
-      transition: opacity 0.3s ease;
+    .modalities-inner span {
+      display: inline-flex; align-items: center; gap: 12px;
     }
-    .logos-inner span:hover { opacity: 0.5; }
+    .modalities-inner .mod-name {
+      font-weight: 600; color: var(--dark);
+    }
+    .modalities-inner .mod-desc {
+      font-weight: 400; color: var(--text-soft); font-size: 0.78rem;
+    }
+    .mod-sep {
+      color: var(--blush); font-size: 0.6rem; user-select: none;
+    }
 
     /* ── ABOUT ── */
     .about {
@@ -229,7 +254,7 @@
       color: var(--dark); margin-bottom: 20px;
     }
     .about-body p {
-      color: var(--text-mid); font-size: 1.05rem;
+      color: var(--text); font-size: 1.05rem;
       margin-bottom: 14px;
     }
     .about-sig {
@@ -237,6 +262,15 @@
       font-style: italic; color: var(--terra);
       margin-top: 24px;
     }
+    .about-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px;
+      font-family: var(--accent); font-size: 0.84rem; font-weight: 600;
+      color: var(--terra);
+      transition: gap 0.3s ease;
+    }
+    .about-cta:hover { gap: 10px; }
+    .about-cta svg { width: 14px; height: 14px; }
 
     /* ── WORK WITH ME ── */
     .offerings {
@@ -253,7 +287,7 @@
       color: var(--dark); margin-bottom: 8px;
     }
     .offerings-intro p {
-      color: var(--text-mid); font-size: 1rem; max-width: 540px;
+      color: var(--text); font-size: 1rem; max-width: 540px;
     }
     .offering-primary {
       border-top: 1px solid rgba(0,0,0,0.08);
@@ -264,7 +298,7 @@
       color: var(--dark); margin-bottom: 14px;
     }
     .offering-primary p {
-      color: var(--text-mid); font-size: 1.05rem; line-height: 1.8;
+      color: var(--text); font-size: 1.05rem; line-height: 1.8;
       max-width: 600px; margin-bottom: 16px;
     }
     .offering-primary-meta {
@@ -277,6 +311,10 @@
     }
     .offering-link:hover { gap: 10px; }
     .offering-link svg { width: 14px; height: 14px; }
+    .ext-icon {
+      width: 11px; height: 11px; opacity: 0.5; flex-shrink: 0;
+      margin-left: 2px;
+    }
     .offering-pair {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       border-top: 1px solid rgba(0,0,0,0.08);
@@ -384,6 +422,13 @@
     .testimonial-small .testimonial-avatar {
       width: 36px; height: 36px;
     }
+    .testimonial-action {
+      margin-top: 56px; text-align: center;
+    }
+    .testimonial-action p {
+      font-family: var(--serif); font-size: 1.15rem;
+      font-style: italic; color: var(--dark); margin-bottom: 20px;
+    }
 
     /* ── PODCAST ── */
     .podcast {
@@ -408,7 +453,7 @@
       color: var(--dark); margin-bottom: 16px;
     }
     .podcast-body > p {
-      color: var(--text-mid); font-size: 1.05rem; margin-bottom: 32px;
+      color: var(--text); font-size: 1.05rem; margin-bottom: 32px;
     }
     .ep-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
     .ep {
@@ -419,12 +464,25 @@
       transition: padding-left 0.3s ease;
     }
     .ep:hover { padding-left: 8px; }
+    .ep-play {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border-radius: 50%; background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s ease;
+    }
+    .ep:hover .ep-play { background: var(--terra); }
+    .ep-play svg { width: 12px; height: 12px; fill: var(--terra); transition: fill 0.3s ease; }
+    .ep:hover .ep-play svg { fill: #fff; }
     .ep h4 {
       font-family: var(--accent); font-size: 0.88rem; font-weight: 600;
       color: var(--dark);
       transition: color 0.3s ease;
     }
     .ep:hover h4 { color: var(--terra); }
+    .podcast-fresh {
+      font-family: var(--accent); font-size: 0.78rem; font-weight: 500;
+      color: var(--sage); margin-bottom: 12px;
+    }
 
     /* ── NEWSLETTER ── */
     .newsletter {
@@ -442,7 +500,7 @@
       color: var(--dark); margin-bottom: 8px;
     }
     .nl-text p {
-      color: var(--text-mid); font-size: 0.95rem; max-width: 400px;
+      color: var(--text); font-size: 0.95rem; max-width: 400px;
     }
     .nl-form-wrap { flex-shrink: 0; }
     .nl-form {
@@ -494,7 +552,7 @@
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
     .ft-col h4 {
       font-family: var(--accent); font-size: 0.82rem; font-weight: 600;
-      color: rgba(255,255,255,0.5); margin-bottom: 16px;
+      color: rgba(255,255,255,0.6); margin-bottom: 16px;
     }
     .ft-col ul { list-style: none; }
     .ft-col li { margin-bottom: 10px; }
@@ -545,8 +603,10 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
+      .nav-menu { gap: 20px; }
       .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 140px 24px 60px; text-align: center; }
+      .hero-left { padding: 120px 24px 40px; text-align: center; }
+      .hero-eyebrow { justify-content: center; }
       .hero-p { margin-left: auto; margin-right: auto; }
       .hero-actions { justify-content: center; }
       .hero-right { height: 50vh; }
@@ -567,8 +627,17 @@
         display: flex; flex-direction: column;
         position: absolute; top: 100%; left: 0; right: 0;
         background: rgba(255,252,250,0.98); backdrop-filter: blur(20px);
-        padding: 20px; gap: 16px;
+        padding: 24px 20px; gap: 8px;
         box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      }
+      .nav-menu.open li { padding: 0; }
+      .nav-menu.open a {
+        display: block; padding: 12px 16px; border-radius: 8px;
+        font-size: 0.95rem;
+      }
+      .nav-menu.open a:hover { background: rgba(0,0,0,0.03); }
+      .nav-menu.open .nav-cta {
+        margin-top: 8px; text-align: center;
       }
       .podcast-grid { grid-template-columns: 1fr; gap: 48px; }
       .nl-form { flex-direction: column; }
@@ -576,6 +645,7 @@
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       .quote-inner { flex-direction: column; gap: 16px; }
+      .quote-mark { font-size: 3.5rem; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.2rem; }
@@ -586,14 +656,14 @@
 
   <a href="#main" class="skip-link">Ir al contenido principal</a>
 
-  <nav class="nav" id="nav" role="navigation" aria-label="Main">
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Juliana<span>Henao</span></a>
+      <a href="#" class="nav-logo"><svg class="nav-logo-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12c5-1 8-4 10-10z"/><path d="M12 2c5.5 0 10 4.5 10 10-5-1-8-4-10-10z"/><path d="M12 2v10"/></svg>Juliana <span>Henao</span></a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#services">Trabaja conmigo</a></li>
-        <li><a href="#podcast">Videos</a></li>
         <li><a href="#stories">Testimonios</a></li>
+        <li><a href="#podcast">Videos</a></li>
+        <li><a href="#services">Trabaja conmigo</a></li>
         <li><a href="#newsletter" class="nav-cta">Empieza aquí</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
@@ -616,21 +686,24 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
-      <p class="hero-social-proof">Más de <strong>2,000</strong> mujeres confían en este proceso</p>
     </div>
     <div class="hero-right">
       <img src="juliana-hero.jpg" alt="Juliana Henao, Life Coach y Terapeuta Holística">
     </div>
   </section>
 
-  <section class="logos" aria-label="Certificaciones y modalidades">
+  <section class="modalities" aria-label="Certificaciones y modalidades">
     <div class="wrap">
-      <div class="logos-inner">
-        <span>Life Coach Certificada</span>
-        <span>Practicante de Reiki</span>
-        <span>EFT Tapping</span>
-        <span>Emotion Codes</span>
-        <span>Access Bars</span>
+      <div class="modalities-inner">
+        <span><em class="mod-name">Life Coach Certificada</em></span>
+        <span class="mod-sep" aria-hidden="true">●</span>
+        <span><em class="mod-name">Reiki</em> <em class="mod-desc">— sanación energética</em></span>
+        <span class="mod-sep" aria-hidden="true">●</span>
+        <span><em class="mod-name">EFT Tapping</em> <em class="mod-desc">— liberación emocional</em></span>
+        <span class="mod-sep" aria-hidden="true">●</span>
+        <span><em class="mod-name">Emotion Codes</em></span>
+        <span class="mod-sep" aria-hidden="true">●</span>
+        <span><em class="mod-name">Access Bars</em></span>
       </div>
     </div>
   </section>
@@ -646,6 +719,7 @@
           <p>Llegué a Estados Unidos desde Colombia en 2004 con mi esposo, dos hijos pequeños y un título en trabajo social. A pesar de mi experiencia, empecé de cero — trabajando en la cocina de un restaurante mientras construía una nueva vida. Ese camino me enseñó todo sobre la resiliencia, el amor propio y lo que realmente significa sanar desde adentro.</p>
           <p>Hoy, con más de 25 años de experiencia, un MBA y certificaciones en life coaching, Reiki, EFT Tapping y Emotion Codes, ayudo a mujeres a soltar el peso de las emociones acumuladas y dar el paso hacia una vida que realmente amen.</p>
           <div class="about-sig">Juliana Henao</div>
+          <a href="#services" class="about-cta">Conoce cómo trabajamos juntas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
@@ -659,9 +733,9 @@
       </div>
       <div class="offering-primary">
         <h3>Coaching 1:1 y Terapia Holística</h3>
-        <p>Sesiones personalizadas que combinan life coaching con modalidades holísticas — Reiki, EFT Tapping, Emotion Codes y Access Bars. Trabajamos juntas para soltar lo que te ha detenido y construir una base de amor propio genuino.</p>
+        <p>Sesiones personalizadas que combinan life coaching con terapias holísticas — Reiki, EFT, Emotion Codes y Access Bars. Trabajamos juntas para soltar lo que te ha detenido y construir una base de amor propio genuino.</p>
         <div class="offering-primary-meta">Virtual y presencial · Sesiones de 60 min · Horarios flexibles</div>
-        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Agenda tu sesión</a>
+        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Agenda una consulta <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
       </div>
       <div class="offering-pair">
         <div class="offering-course">
@@ -672,7 +746,7 @@
               <h3>30 Días de Amor Propio</h3>
               <p>Ejercicios diarios, meditaciones y prácticas terapéuticas. Solo 5–10 minutos al día para empezar a liberar emociones y romper patrones dañinos.</p>
               <div class="offering-detail">2,000+ descargas · Garantía de 7 días</div>
-              <a href="https://julianahenaolifecoach.com" class="offering-link" target="_blank" rel="noopener">Obtener la guía <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              <a href="https://julianahenaolifecoach.com" class="offering-link" target="_blank" rel="noopener">Obtener la guía <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
             </div>
           </div>
         </div>
@@ -681,7 +755,7 @@
           <h3>Mujeres Marcando el Camino</h3>
           <p>Un espacio de empoderamiento para mujeres hispanas en Estados Unidos. Talleres, grupos de apoyo e historias compartidas para mujeres construyendo nuevas vidas con coraje y autocompasión.</p>
           <div class="offering-detail">Virtual y presencial · Metro Atlanta</div>
-          <a href="https://wa.link/atw69s" class="offering-link" target="_blank" rel="noopener">Únete por WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a href="https://wa.link/atw69s" class="offering-link" target="_blank" rel="noopener">Únete por WhatsApp <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
     </div>
@@ -734,6 +808,10 @@
           </div>
         </div>
       </div>
+      <div class="testimonial-action">
+        <p>¿Lista para tu transformación?</p>
+        <a href="https://julianahenaolifecoach.com" class="btn btn--fill" target="_blank" rel="noopener">Agenda una consulta <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
     </div>
   </section>
 
@@ -746,20 +824,24 @@
           </div>
         </div>
         <div class="podcast-body">
-          <h2>Cómo Vivir Mejor?</h2>
-          <p>Conversaciones sobre bienestar, crecimiento emocional y vivir con más intención. Videos nuevos cada semana en YouTube.</p>
+          <div class="podcast-fresh">Nuevos videos cada semana</div>
+          <h2>Sanación en video</h2>
+          <p>Conversaciones honestas sobre bienestar, crecimiento emocional y vivir con más intención. Del canal <em>Cómo Vivir Mejor?</em> en YouTube.</p>
           <div class="ep-list">
             <a href="https://www.youtube.com/watch?v=5K8Ihyy01l8" class="ep" target="_blank" rel="noopener">
+              <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
               <div><h4>5 Lecciones de Amor Propio en "El Principito"</h4></div>
             </a>
             <a href="https://www.youtube.com/watch?v=y63V-5as4Kc" class="ep" target="_blank" rel="noopener">
+              <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
               <div><h4>7 Prácticas para Sanarte y Volver a Ti</h4></div>
             </a>
             <a href="https://www.youtube.com/watch?v=1E8mtBnDjGg" class="ep" target="_blank" rel="noopener">
+              <div class="ep-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
               <div><h4>Estás Tocando Fondo y No lo Sabes?</h4></div>
             </a>
           </div>
-          <a href="https://www.youtube.com/@JulianaHenaoLifecoach" class="btn btn--fill" target="_blank" rel="noopener">Ver en YouTube</a>
+          <a href="https://www.youtube.com/@JulianaHenaoLifecoach" class="btn btn--fill" target="_blank" rel="noopener">Ver en YouTube <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
     </div>
@@ -770,11 +852,11 @@
       <div class="nl-inner">
         <div class="nl-text">
           <h2>¿Lista para empezar a sanar?</h2>
-          <p>Únete a mujeres que eligen el amor propio cada día. Recibe consejos semanales, prácticas de sanación y acceso anticipado a nuevos recursos.</p>
+          <p>Cada semana recibirás una reflexión corta, un ejercicio de sanación y acceso anticipado a talleres y guías nuevas — directo a tu bandeja.</p>
         </div>
         <div class="nl-form-wrap">
           <form class="nl-form" id="nlForm" novalidate>
-            <input type="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
+            <input type="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico" autocomplete="email" inputmode="email">
             <button type="submit">Suscribirme</button>
           </form>
           <div class="nl-feedback" id="nlFeedback" role="status" aria-live="polite"></div>
@@ -790,7 +872,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="nav-logo">Juliana<span>Henao</span></div>
+          <div class="nav-logo"><svg class="nav-logo-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12c5-1 8-4 10-10z"/><path d="M12 2c5.5 0 10 4.5 10 10-5-1-8-4-10-10z"/><path d="M12 2v10"/></svg>Juliana <span>Henao</span></div>
           <p>Ayudando a mujeres a sanar desde adentro y construir vidas con amor propio y propósito.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/julianahenaolifecoach/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -827,7 +909,10 @@
     const nlForm = document.getElementById('nlForm');
     const nlFeedback = document.getElementById('nlFeedback');
     const backToTop = document.getElementById('backToTop');
+    const mainContent = document.getElementById('main');
+    const footer = document.querySelector('.footer');
 
+    // ── Scroll state ──
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
@@ -844,14 +929,63 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // ── Mobile menu with full accessibility ──
+    function openMenu() {
+      navMenu.classList.add('open');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Cerrar menú');
+      mainContent.setAttribute('aria-hidden', 'true');
+      footer.setAttribute('aria-hidden', 'true');
+      document.addEventListener('keydown', handleMenuKeys);
+      document.addEventListener('click', handleOutsideClick);
+      const firstLink = navMenu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    }
+
+    function closeMenu() {
+      navMenu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Abrir menú');
+      mainContent.removeAttribute('aria-hidden');
+      footer.removeAttribute('aria-hidden');
+      document.removeEventListener('keydown', handleMenuKeys);
+      document.removeEventListener('click', handleOutsideClick);
+      burger.focus();
+    }
+
+    function handleMenuKeys(e) {
+      if (e.key === 'Escape') { closeMenu(); return; }
+      if (e.key === 'Tab') {
+        const focusable = [burger, ...navMenu.querySelectorAll('a')];
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      }
+    }
+
+    function handleOutsideClick(e) {
+      if (!navMenu.contains(e.target) && !burger.contains(e.target)) {
+        closeMenu();
+      }
+    }
+
     burger.addEventListener('click', () => {
-      const open = navMenu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open);
+      navMenu.classList.contains('open') ? closeMenu() : openMenu();
     });
 
+    // ── Newsletter with double-submit prevention ──
+    let nlSubmitting = false;
     nlForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (nlSubmitting) return;
       const input = nlForm.querySelector('input');
+      const btn = nlForm.querySelector('button');
       const email = input.value.trim();
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         input.classList.add('invalid');
@@ -859,6 +993,8 @@
         nlFeedback.className = 'nl-feedback err';
         return;
       }
+      nlSubmitting = true;
+      btn.disabled = true;
       input.classList.remove('invalid');
       input.value = '';
       nlFeedback.innerHTML = '¡Ya estás dentro! Revisa tu bandeja de entrada. <a href="#" id="nlReset" style="color:var(--terra);font-weight:500;">Suscribir otro correo</a>';
@@ -867,6 +1003,8 @@
       document.getElementById('nlReset').addEventListener('click', (ev) => {
         ev.preventDefault();
         nlForm.style.display = 'flex';
+        btn.disabled = false;
+        nlSubmitting = false;
         nlFeedback.textContent = '';
         nlFeedback.className = 'nl-feedback';
       });
@@ -878,6 +1016,7 @@
       nlFeedback.className = 'nl-feedback';
     });
 
+    // ── Scroll reveals ──
     const reveals = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -889,7 +1028,7 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => obs.observe(el));
 
-    // Nav active state
+    // ── Nav active state ──
     const navLinks = document.querySelectorAll('.nav-menu a:not(.nav-cta)');
     const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const navObs = new IntersectionObserver((entries) => {
@@ -903,14 +1042,14 @@
     }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
     sections.forEach(s => navObs.observe(s));
 
+    // ── Smooth scroll (closes menu if open) ──
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
         const t = document.querySelector(a.getAttribute('href'));
         if (t) {
           t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          navMenu.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
+          if (navMenu.classList.contains('open')) closeMenu();
         }
       });
     });
